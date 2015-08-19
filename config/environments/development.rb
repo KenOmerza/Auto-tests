@@ -38,4 +38,26 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  Sauce.config do |c|
+    # Other values implied but not shown here because they're totes boring
+    c[:connect_options] = {:logfile => '/log/sauce.log'}
+    # If on a mac
+    if (/darwin/ =~ RUBY_PLATFORM)
+      c[:sauce_connect_4_executable] = '/bin/sc-mac'
+    # If on windows
+    elsif (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM)
+      c[:sauce_connect_4_executable] = '/bin/sc-windows.exe'
+    # If on linux
+    else
+      c[:sauce_connect_4_executable] = '/bin/sc-linux'
+    end
+    c[:browsers] = [
+      ["Windows 7","Firefox","18"],
+      ["Windows 7","chrome","39.0"],
+      ["OS X 10.10", "Firefox","18"],
+      ["OS X 10.10", "chrome", "39.0"]
+    ]
+  end
+
 end
