@@ -1,30 +1,29 @@
 == README
 
-
 ===Purpose
 These tests are for general testing of http://www.vitals.com and other MDX Medical
 web projects and portals.
 
-====Run the tests parallel
-  rake parallel:features
+==Details
+  * Ruby version 2.2.1p85
 
-====Run feature individually
-  cucumber features/Masthead.feature
+* Configuration
+  - Run "Bundle Install" in a terminal from the project root directory
 
-====Reports
-All reports are stored in ./reports
+* How to run the test suite
+  - SINGLE FEATURE
+      + "cucumber features/[featureName].feature"
+  - Parallel All Features
+      + "rake parallel:features"
 
-=== Masthead Feature
-This feature tests various parts of the mast head.
-  1. Search for Doctor
-  2. Search for Condition
-  3. Ensure changing insurance plan shows different doctors
+* Reports
+  - All reports are stored in ./reports
+  - Reports overwrite previous run
+    + Will be fixed in future
+  - Images for Failure Only
+    + Previous run images erased during new run.
 
-
-=== LifeWise Feature
-This feature consists of 2 scenarios.
-
-
-===Gems added after initial setup
-1. Syntax -> Highlights ruby code in test output
-2. Capybara-screenshot/cucumber -> Saves screen shots to output
+* Works In Progress
+  1. Reports / Image naming and saivng
+  2. Clean-up of steps in .feature files for readability
+  3. Multi Browser testing in a single run

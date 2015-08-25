@@ -14,7 +14,6 @@ end
 
 When(/^I select "(.*?)" as the health company and "(.*?)" as the plan$/) do |company, plan|
   selectHealthInsurance(company, plan)
-    sleep(2)
 end
 
 #Then
@@ -29,10 +28,8 @@ end
 
 Then(/^I should see "(.*?)" in the autocomplete suggestions$/) do |term|
   findInSearchAutocompelte(term)
-  sleep(2)
 end
 
 Then(/^I should NOT see "(.*?)" in the autocomplete suggestions$/) do |term|
   verifyNotInSearchAutoCompelte(term)
-    sleep(2)
 end

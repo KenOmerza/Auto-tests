@@ -1,11 +1,15 @@
 module GeneralHelpers
   def openPage(page, display)
     visit(page)
+    #waitForPageLoad
     dismissOutdatedBrowser
     dismissSurvey
     changeBrowserSize(display)
+  end
 
-
+  def waitForPageLoad
+  sleep(2)
+  expect(page).to have_css('#buorgclose')
   end
 
 	def dismissSurvey

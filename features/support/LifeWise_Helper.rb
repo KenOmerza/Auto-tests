@@ -1,7 +1,9 @@
 module LifeWise_Helper
 
   def findCorrectCard(text)
-    cards = all(:css, '.default-icon')
+#    cardID = getCardSelector(text)
+#    find(:css, cardID).click
+    cards = all(:css, '.wayfinding-fade-out')
     found = false
     for card in cards.each do
       if (card.text == text)
@@ -17,6 +19,7 @@ module LifeWise_Helper
   def verifyResults(expected)
     results = all(:css, '.info')
   end
+
 
 end
 

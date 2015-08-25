@@ -1,7 +1,6 @@
-Feature: Test UAT LifeWise Users
+Feature: UAT LifeWise Testing
 
-  Scenario: Login as LifeWise UAT as McQuain and
-  navigate Medical Care -> Specialist -> Pediatrician
+  Scenario: Login as LifeWise UAT as McQuain and navigate Medical Care -> Specialist -> Pediatrician
   and find Cathy G Wilkinson, MD.
     Given I am on the LifeWise webpage
     When I log in as "McQuain"

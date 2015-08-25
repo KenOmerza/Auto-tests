@@ -1,4 +1,4 @@
-Feature: Test functionality of the Pharmacy Summary pages
+Feature: Pharmacy Testing
 This test will use the Wal-Mart Pharmacy
 that resides at 200 Otis St Northborough, MA
 
