@@ -3,7 +3,7 @@ When(/^"(.*?)" is typed into the Search field$/) do |term|
     fill_in 'q', :with => term
 end
 
-When(/^I sumbit a search for "([^"]*)"$/) do |term|
+When(/^a search for "(.*?)" is submitted$/) do |term|
   fill_in 'q', :with => term
   click_button 'provider-go'
 end
