@@ -2,20 +2,20 @@ Feature: Pharmacy Testing
 This test will use the Wal-Mart Pharmacy
 that resides at 200 Otis St Northborough, MA
 
+Scenario: Verify the street address and ad sizes.
+	Given I am on the Pharmacy's Summary Page
+	Then the street address "200 Otis St" should be visible
+	And I should see the ads
 
-Scenario: Scroll of the Facilities Service Icon
+Scenario: Clicking on the Facilities Service icon should scroll the page
+down to the Facilities Service panel
 	Given I am on the Pharmacy's Summary Page in a mobile browser
-	When I click on the Facilities Service Icon
-	Then I should see the Facility Services panel
+	When the Facilities Service icon is clicked
+	Then the Facility Services panel should be visible
 
-	Scenario: Navigate to Pharmacy's Summary Page
+	Scenario: Navigate to pages of the Pharmacy Profile
 		Given I am on the Pharmacy's Summary Page
-		Then I should see the expected street "200 Otis St"
-		Then I should see the ads
-
-	Scenario: Navigate to other tabs
-		Given I am on the Pharmacy's Summary Page
-		When I click on the Patient Reviews Link
-		Then I should see the Write a Review Panel
-		When I click on the Contact & Directions Link
-		Then I should see the Contact Pharmacy Panel
+		When the Patient Reviews link is clicked
+		Then the Write a Review panel should be visible
+		When the Contact & Directions Link is clicked
+		Then the Contact Pharmacy panel should be visible

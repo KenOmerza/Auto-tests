@@ -13,36 +13,36 @@ end
 
 #When
 
-When(/^I click on the Patient Reviews Link$/) do
+When(/^the Patient Reviews link is clicked$/) do
   click_link('Reviews')
   sleep(5)
 end
 
-When(/^I click on the Contact & Directions Link$/) do
+When(/^the Contact & Directions Link is clicked$/) do
   click_link('Contact & Directions')
   sleep(5)
 end
 
-When(/^I click on the Facilities Service Icon$/) do
+When(/^the Facilities Service icon is clicked$/) do
   find(:css,".badge").click
   sleep(3)
 end
 
 #Then
 
-Then(/^I should see the expected street "([^"]*)"$/) do |address|
+Then(/^the street address "(.*?)" should be visible$/) do |address|
   expect(page).to have_content(address)
 end
 
-Then(/^I should see the Facility Services panel$/) do
+Then(/^the Facility Services panel should be visible$/) do
   expect(page).to have_css('#facility-services')
 end
 
-Then(/^I should see the Write a Review Panel$/) do
+Then(/^the Write a Review panel should be visible$/) do
   expect(page).to have_css('#submit-review')
 end
 
-Then(/^I should see the Contact Pharmacy Panel$/) do
+Then(/^the Contact Pharmacy panel should be visible$/) do
   expect(page).to have_css('.list')
 end
 

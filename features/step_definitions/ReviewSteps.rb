@@ -10,6 +10,6 @@ end
 #When
 
 #Then
-Then(/^I should expect to see "(.*?)" rating option$/) do |ratingType|
+Then(/^the "(.*?)" rating option should be visible$/) do |ratingType|
   verifyRatingCategory(ratingType)
 end
