@@ -1,37 +1,39 @@
 Feature: Masthead Testing
-  This Feature will test the various functions of the mast head and auto complete.
+  Test the functionality of the masthead including the autocomplete suggestions.
 
-  Scenario: Verify Autocompelte categories "Specialties, Doctors, Dentists, Urgent Care Centers, Pharmacies"
+  Scenario: Verify Autocomplete multiple categories exist in autocomplete suggestions.
     Given I am on the Vitals Homepage
-    When I type "Ken" in the Search field
-    Then I should see the autocomplete dropdown
-    Then I should see the "Specialties, Doctors, Dentists, Urgent Care Centers, Pharmacies" Category
+    When "Ken" is typed into the Search field
+    Then The autocomplete dropdown should be visible
+    And the category(s) "Specialties, Doctors, Dentists, Urgent Care Centers, Pharmacies" should be visible
 
-  Scenario: Verify Autocompelte category "Conditions"
+  Scenario: Verify Autocomplete a single category exist in autocomplete suggestions.
     Given I am on the Vitals Homepage
-    When I type "Dia" in the Search field
-    Then I should see the autocomplete dropdown
-    Then I should see the "Conditions" Category
+    When "Dia" is typed into the Search field
+    Then The autocomplete dropdown should be visible
+    And the category(s) "Conditions" should be visible
 
-  Scenario: Autocomplete Specific Item Suggested by Zipcode: 07663
+  Scenario: Verify Autocomplete suggests a specific suggestion when the zipcode
+  and search are typed into the near and search fields
     Given I am on the Vitals Homepage
-    When I type "07663" into the Near field
-    When I type "Ken" in the Search field
-    Then I should see "Kenneth S Conte" in the autocomplete suggestions
+    When "07663" is typed into the Near field
+    And "Ken" is typed into the Search field
+    Then the suggestion(s) "Kenneth S Conte" should be visible
 
-  Scenario: Autocomplete Specific doctor,
-  add a healthcare plan that doctor does not accept,
-  then confirm doctor does not exist in autosuggest.
+  Scenario: Verify Autocomplete suggests a specific suggestion when the city, state string
+  and search are typed into the near and search fields
     Given I am on the Vitals Homepage
-    When I type "01011" into the Near field
-    When I type "Ken" in the Search field
-    Then I should see "Peter C Kenny" in the autocomplete suggestions
-    When I select "BCBS Alabama" as the health company and "All" as the plan
-    When I type "Peter" in the Search field
-    Then I should NOT see "Peter C Kenny" in the autocomplete suggestions
+    When "Saddle Brook, NJ" is typed into the Near field
+    And "Ken" is typed into the Search field
+    Then the suggestion(s) "Kenneth S Conte" should not be visible
 
-  Scenario: Autocomplete Specific doctor Suggested by City Name: Saddle Brook, NJ
+  Scenario: Verify Autocomplete suggests a specific doctor and
+  but is removed from suggestions after adding
+  an insurance plan the doctor does not accept.
     Given I am on the Vitals Homepage
-    When I type "Saddle Brook, NJ" into the Near field
-    When I type "Ken" in the Search field
-    Then I should see "Kenneth S Conte" in the autocomplete suggestions
+    When "01011" is typed into the Near field
+    And "Ken" is typed into the Search field
+    Then the suggestion(s) "Peter C Kenny" should be visible
+    When "BCBS Alabama" is entered as the healthcare company and "All" as the plan
+    And "Peter" is typed into the Search field
+    Then the suggestion(s) "Peter C Kenny" should not be visible
