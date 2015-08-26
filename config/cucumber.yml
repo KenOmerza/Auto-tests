@@ -1,1 +1,2 @@
-default: --format html --out reports/report<%= ENV['TEST_ENV_NUMBER'] %>.html
+default: --format html --out reports/report_<%= ENV['TEST_ENV_NUMBER'] %>.html
+terminal: --format pretty

@@ -22,8 +22,9 @@ web projects and portals.
     + Will be fixed in future
   - Images for Failure Only
     + Previous run images erased during new run.
+  - Reports can now be printed directly to terminal for single runs
+    + [cucumber run statement] -p terminal
 
 * Works In Progress
-  1. Reports / Image naming and saivng
-  2. Clean-up of steps in .feature files for readability
-  3. Multi Browser testing in a single run
+  1. Reports / Image Naming
+  2. Multi Browser testing in a single run
