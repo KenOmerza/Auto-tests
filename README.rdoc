@@ -16,6 +16,10 @@ web projects and portals.
   - Parallel All Features
       + "rake parallel:features"
 
+*How to run the tests in sauce labs
+  in features/support/sauce_helper.rb change the following to TRUE
+    config[:start_local_application] = 
+
 * Reports
   - All reports are stored in ./reports
   - Reports overwrite previous run
