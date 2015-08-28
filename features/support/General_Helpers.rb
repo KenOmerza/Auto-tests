@@ -1,22 +1,16 @@
 module GeneralHelpers
   def openPage(page, display)
     visit(page)
-    #waitForPageLoad
     dismissOutdatedBrowser
     dismissSurvey
     changeBrowserSize(display)
-  end
-
-  def waitForPageLoad
-  sleep(2)
-  expect(page).to have_css('#buorgclose')
   end
 
 	def dismissSurvey
 		begin
 			find(:css, "a.pd-close").click
 		rescue Capybara::ElementNotFound
-			#puts("Poll Daddy Survey not found")
+			#Dialog does not exist so ignore error
 		end
 
 	end
@@ -25,7 +19,7 @@ module GeneralHelpers
 		begin
 			find(:css,"#buorgclose").click
 		rescue Capybara::ElementNotFound
-			#puts("Browser Notification not found")
+			#Dialog does not exist so ignore error
 		end
 
 	end
